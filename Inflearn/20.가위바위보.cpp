@@ -49,6 +49,8 @@ int main()
 
 	}
 
+	delete[] arr_A;
+	delete[] arr_B;
 
 	return 0;
 }
