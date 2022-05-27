@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// Least Recently Used (LRU) Ä³½Ã
 int main()
 {
 	int size, N, tmp;
