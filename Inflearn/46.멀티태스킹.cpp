@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	int N, K, pos = 0;
+	int N, K, pos = 0, bp = 0, cnt = 0;
 	cin >> N;
 
 	vector<int> A(N + 1);
@@ -18,10 +18,23 @@ int main()
 
 	cin >> K;
 
-	while (K--)
+	while (1)
 	{
 		pos++;
+		if (pos > N) pos = 1;
+
+		if (A[pos] != 0)
+		{
+			cnt++;
+			A[pos]--;
+			pos++;
+		}
+
+		if (cnt == K) break;
+
 	}
+
+
 
 	return 0;
 }
