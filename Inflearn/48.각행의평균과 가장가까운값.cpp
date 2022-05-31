@@ -10,7 +10,8 @@ int C[9];
 
 int main()
 {
-	int avg = 0, diff = 0, min = 21470000000, idx = 0;
+	float avg = 0, diff = 0, min = 21470000000;
+	int idx = 0;
 	
 	for (int i = 0; i < 9; i++)
 	{
@@ -21,8 +22,7 @@ int main()
 			cin >> A[i][j];
 			avg += A[i][j];
 		}
-		B[i] = avg / 9;
-
+		B[i] = roundf(avg / 9);
 	}
 
 	for (int i = 0; i < 9; i++)
@@ -37,6 +37,10 @@ int main()
 			{
 				min = diff;
 				idx = j;
+			}
+			else if (min == diff)
+			{
+				if (A[i][idx] < A[i][j]) idx = j;
 			}
 		}
 		C[i] = A[i][idx];
