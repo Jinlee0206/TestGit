@@ -7,6 +7,35 @@ using namespace std;
 
 int main()
 {
+	string str;
+	cin >> str;
+
+	stack<char> s;
+	bool isCorrect = true;
+
+	for (int i = 0; i < str.size(); i++)
+	{
+		if (str[i] == '(') s.push(str[i]);
+		else {
+			if (s.empty())
+			{
+				cout << "NO" << endl;
+				isCorrect = false;
+				break;
+			}
+			else s.pop();
+		}
+	}
+
+	if (s.empty() && isCorrect == true) cout << "YES" << endl;
+	else if(!s.empty() &&isCorrect == true)cout << "NO" << endl;
+
+	return 0;
+}
+
+/*
+int main()
+{
 	string s;
 	cin >> s;
 
@@ -39,4 +68,4 @@ int main()
 	}
 	
 	return 0;
-}
+}*/
