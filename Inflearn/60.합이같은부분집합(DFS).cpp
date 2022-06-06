@@ -15,7 +15,7 @@ void DFS(int lv, int sum)
 
 	if (lv == N + 1)
 	{
-		if (sum == (tot - sum))	flag == true;
+		if (sum == (tot - sum))	flag = true;
 	}
 	else
 	{
