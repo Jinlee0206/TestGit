@@ -4,18 +4,33 @@
 
 using namespace std;
 
-int N, M, tot = 0, a[11], cnt = 0;
+int N, M, tot = 0, a[11], cnt = 0, path[11];
 
 void DFS(int lv, int sum)
 {
 	if (lv == N + 1)
 	{
-		if (M == sum) cnt++;
+		if (M == sum) {
+			cnt++;
+
+			// path 배열 만들기
+			for (int i = 1; i < lv; i++)
+			{
+				cout << path[i] << " ";
+			}
+			cout << "\n";
+		}
+		
 	}
 	else
 	{
+		path[lv] = a[lv];
 		DFS(lv + 1, sum + a[lv]);
+
+		path[lv] = -a[lv];
 		DFS(lv + 1, sum - a[lv]);
+
+		path[lv] = 0;
 		DFS(lv + 1, sum);
 	}
 }
