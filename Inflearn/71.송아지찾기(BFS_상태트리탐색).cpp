@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int ch[10000];
+int ch[10001];
 int val[] = { -1, 1, 5 };
 
 int main()
@@ -26,6 +26,8 @@ int main()
 		for (int i = 0; i < 3; i++)
 		{
 			pos = x + val[i];
+
+			if (pos > 10000 || pos <= 0) continue;
 
 			if (pos == E)
 			{
