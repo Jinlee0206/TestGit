@@ -7,6 +7,7 @@ using namespace std;
 int getParent(int parent[], int x)
 {
 	if (parent[x] == x) return x;
+	// 메모이제이션
 	else return parent[x] = getParent(parent, parent[x]);
 }
 
