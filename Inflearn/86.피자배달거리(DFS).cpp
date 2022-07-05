@@ -8,11 +8,7 @@ int N, M, res = 2147000000, dist, sum =0;
 
 int ch[20];
 
-vector<pair<int, int> > hs;
-vector<pair<int, int> > pz;
-
-
-void DFS(int s, int L)
+void DFS(vector<pair<int, int>> &hs, vector<pair<int, int>>& pz, int s, int L)
 {
 	if (L == M)
 	{
@@ -25,13 +21,12 @@ void DFS(int s, int L)
 
 			for (int j = 0; j < M; j++)
 			{
-				int x2 = pz[i].first;
-				int y2 = pz[i].second;
+				int x2 = pz[ch[j]].first;
+				int y2 = pz[ch[j]].second;
 				dist = min(dist, abs(x1 - x2) + abs(y1 - y2));
 			}
 			sum += dist;
 		}
-
 		if (res > sum) res = sum;
 	
 	}
@@ -40,7 +35,7 @@ void DFS(int s, int L)
 		for (int i = s; i < pz.size(); i++)
 		{
 			ch[L] = i;
-			DFS(i+1, L+1);
+			DFS(hs, pz, i+1, L+1);
 		}
 	}
 
@@ -50,9 +45,12 @@ int main()
 {
 	cin >> N >> M;
 
-	for (int i = 0; i <= N; i++)
+	vector<pair<int, int> > hs;
+	vector<pair<int, int> > pz;
+
+	for (int i = 0; i < N; i++)
 	{
-		for (int j = 0; j <= N; j++)
+		for (int j = 0; j < N; j++)
 		{
 			int a;
 			cin >> a;
@@ -67,7 +65,7 @@ int main()
 		}
 	}
 
-	DFS(0, 0);
+	DFS(hs, pz, 0, 0);
 
 	cout << res << "\n";
 
